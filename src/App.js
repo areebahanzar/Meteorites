@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// import Background from './Background';
+// import NasaData from './NasaData';
+import nebula from './nebula.jpg'
+import './App.css'
+const App = () => {
+  const myStyle = {
+    backgroundImage: `url(${nebula})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    zIndex: 0,
+    position: 'relative'
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div style={myStyle}>
+        <p id="name">Areebah Anzar</p>
+      </div>
     </div>
-  );
-}
+  )
+};
 
 export default App;
