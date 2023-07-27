@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+// import nebula from './nebula.jpg';
+import FirstPage from './FirstPage';
+const App = () => {
+  const [space, setSpace] = useState([]);
+  useEffect(() => {
+    fetch('https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.near_earth_objects);
+        setSpace(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  return (<FirstPage />)
+};
 
 export default App;
